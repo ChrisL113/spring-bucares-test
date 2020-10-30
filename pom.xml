@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>bucarestest</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>demo</name>
     <description>Demo project for Spring Boot</description>
 
@@ -28,7 +28,7 @@
             scm:git:git@github.com:KristoLopez/spring-bucares-test.git
         </developerConnection>
        <url>https://github.com/KristoLopez/spring-bucares-test.git</url>
-        <tag>0.0.1</tag>
+        <tag>@{project.version}</tag>
     </scm>
     <dependencies>
         <dependency>
