@@ -1,4 +1,4 @@
-package com.example.demo.test;
+package com.example.demo.test.service;
 
 import com.example.demo.model.IndexSys;
 import com.example.demo.dto.IndexSysDto;
@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -108,4 +109,38 @@ public class IndexSysMockTest {
       assertEquals(stringSnapshot.getValue(),
         "www.google.com");
    }
+
+   @Test
+   void dtoTests() {
+      IndexSysDto indexSysDto = new IndexSysDto();
+      indexSysDto.setUrl("www.google.com");
+      indexSysDto.setWord("dang");
+
+
+      IndexSysDto indexSysDto2 = new IndexSysDto();
+      indexSysDto2.setUrl("www.google.com");
+      indexSysDto2.setWord("dang");
+
+      assertTrue(indexSysDto.equals(indexSysDto2));
+      assertEquals(indexSysDto.getUrl(),"www.google.com");
+      assertEquals(indexSysDto.getWord(),"dang");
+
+
+   }
+
+   @Test
+   void indexSysTest() {
+      IndexSys indexSys= new IndexSys();
+      indexSys.setUrl("www.google.com");
+      indexSys.setWord("dang");
+      IndexSys indexSys2= new IndexSys();
+      indexSys2.setUrl("www.google.com");
+      indexSys2.setWord("dang");
+
+      assertTrue(indexSys.equals(indexSys2));
+      assertEquals(indexSys.getUrl(),"www.google.com");
+      assertEquals(indexSys.getWord(),"dang");
+
+   }
+
 }
