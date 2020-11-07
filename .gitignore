@@ -33,3 +33,5 @@ build/
 .vscode/
 ### React ###
 bucaresReact
+### js ###
+node_modules
