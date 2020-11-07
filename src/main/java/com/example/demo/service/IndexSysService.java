@@ -29,9 +29,9 @@ public class IndexSysService {
             return "accepted";
          }
 
-         return "rejected";
+         return "rejected_word";
       }
-      return "url already in use";
+      return "rejected_url";
    }
 
    @Transactional(readOnly = true)

@@ -21,6 +21,7 @@ public class IndexSysController {
    @PostMapping("/check")
    public ResponseEntity<ResponseDto> createIndexSys(
      @RequestBody IndexSysDto indexSysDto) {
+
       ResponseDto response = new ResponseDto();
 
       response.setState(indexSysService.createIndexSys(indexSysDto));
@@ -41,17 +42,18 @@ public class IndexSysController {
    }
 
    @DeleteMapping("")
-   public ResponseEntity<String> deleteIndex(@RequestBody RequestUrlDto requestUrlDto) {
+   public ResponseEntity<String> deleteIndex(
+     @RequestBody RequestUrlDto requestUrlDto) {
+
       try {
          indexSysService.deleteIndexSys(requestUrlDto.getUrl());
 
-      }
-      catch (EmptyResultDataAccessException exception){
+      } catch (EmptyResultDataAccessException exception) {
 
          return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
-      }
-      catch (Exception exception) {
-         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+      } catch (Exception exception) {
+         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+           .body(null);
       }
       return ResponseEntity.status(HttpStatus.OK).body(null);
    }
