@@ -95,8 +95,8 @@
                 <version>1.10.3</version>
                 <configuration>
                     <installDirectory>target</installDirectory>
-                    <nodeVersion>v14.15.0</nodeVersion>
-<!--                    <npmVersion>2.13.4</npmVersion> -->
+                    <nodeVersion>v12.18.4</nodeVersion>
+                    <npmVersion>6.14.6</npmVersion>
                 </configuration>
                 <executions>
                     <execution>
