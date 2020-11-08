@@ -1,29 +1,30 @@
-import { SUCCESS, CLEAR, ERROR, WARNING, INFO } from './types';
+import { CLEAR, ERROR, INFO, SUCCESS, WARNING } from './types'
 
 export const showSuccessSnackbar = message => {
   return dispatch => {
-    dispatch({ type: SUCCESS, message });
-  };
-};
+    dispatch({ type: SUCCESS, message })
+  }
+}
 
 export const showErrorSnackbar = message => {
   return dispatch => {
-    dispatch({ type: ERROR, message });
-  };
-};
+    dispatch({ type: ERROR, message })
+  }
+}
+
 export const showInfoSnackbar = message => {
   return dispatch => {
-    dispatch({ type: INFO, message });
-  };
-};
+    dispatch({ type: INFO, message })
+  }
+}
 
 export const showWarningSnackbar = message => {
   return dispatch => {
-    dispatch({ type: WARNING, message });
-  };
-};
+    dispatch({ type: WARNING, message })
+  }
+}
 export const clearSnackbar = () => {
   return dispatch => {
-    dispatch({ type: CLEAR });
-  };
-};
+    dispatch({ type: CLEAR })
+  }
+}
