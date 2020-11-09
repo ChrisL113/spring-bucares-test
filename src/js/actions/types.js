@@ -1,6 +1,6 @@
 //Words Actions
-export const FETCH_WORDS = 'FETCH_WORDS'
-export const ERASE_WORD = 'ERASE_WORD'
+export const FETCH_URLS = 'FETCH_URLS'
+export const ERASE_URL = 'ERASE_URL'
 
 //Notification Actions
 export const SUCCESS = 'SUCCESS'

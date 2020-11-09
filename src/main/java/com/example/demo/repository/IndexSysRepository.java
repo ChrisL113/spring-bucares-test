@@ -8,7 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IndexSysRepository extends JpaRepository<IndexSys, String> {
 
-   @Query("select u from IndexSys u where u.word = ?1")
-   IndexSys findByWord(String word);
-
 }

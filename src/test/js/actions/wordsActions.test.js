@@ -1,11 +1,11 @@
 import moxios from 'moxios'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { ERASE_WORD } from '../../../js/actions/types'
+import { ERASE_URL } from '../../../js/actions/types'
 import {
   checkWord,
-  deleteWord,
-  fetchWords,
+  deleteUrl,
+  fetchUrls,
 } from '../../../js/actions/wordsActions'
 
 const middlewares = [thunk]
@@ -19,19 +19,16 @@ describe('Word actions ', () => {
     moxios.uninstall()
   })
 
-  it(' has to return several words', () => {
+  it(' has to return several urls', () => {
     const expectedResponse = [
       {
         url: 'www.google.co.ve',
-        word: 'whatever',
       },
       {
         url: 'www.youtube.com',
-        word: 'anotherstuff',
       },
       {
         url: 'www.medium.com',
-        word: 'redux',
       },
     ]
     const store = mockStore({ words: [] })
@@ -43,18 +40,18 @@ describe('Word actions ', () => {
       })
     })
 
-    return store.dispatch(fetchWords()).then(() => {
+    return store.dispatch(fetchUrls()).then(() => {
       expect(store.getActions()[0].payload).toEqual(expectedResponse)
     })
   })
 
-  it('has to delete a word', () => {
+  it('has to delete a url', () => {
     const url = 'www.medium.com'
     const index = 0
     const store = mockStore()
     const expectedActions = [
       {
-        type: ERASE_WORD,
+        type: ERASE_URL,
         payload: 0,
       },
     ]
@@ -65,7 +62,7 @@ describe('Word actions ', () => {
         response: expectedActions,
       })
     })
-    return store.dispatch(deleteWord(url, index)).then(() => {
+    return store.dispatch(deleteUrl(url, index)).then(() => {
       expect(store.getActions()).toEqual(expectedActions)
     })
   })

@@ -68,8 +68,8 @@ class IndexInput extends Component {
                 if (res.apiRes == 'rejected_url')
                   this.props.showErrorSnackbar('url is already in database')
                 else if (res.apiRes == 'rejected_word')
-                  this.props.showErrorSnackbar('word is already in database')
-                else this.props.showSuccessSnackbar('word saved !')
+                  this.props.showErrorSnackbar('the word typed is in the page !')
+                else this.props.showSuccessSnackbar('url saved !')
                 break
               default:
                 this.props.showErrorSnackbar(res.msg)

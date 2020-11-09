@@ -1,8 +1,9 @@
 package com.example.demo.test.service;
 
+import com.example.demo.dto.RequestUrlDto;
+import com.example.demo.mapper.UrlMapper;
 import com.example.demo.model.IndexSys;
 import com.example.demo.dto.IndexSysDto;
-import com.example.demo.mapper.IndexSysMapper;
 import com.example.demo.repository.IndexSysRepository;
 import com.example.demo.service.IndexSysService;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,6 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -29,45 +31,18 @@ public class IndexSysMockTest {
    private IndexSysService indexSysService;
    //Dependencies
    @Mock
-   private IndexSys indexSysMock;
-   @Mock
-   private IndexSysDto indexSysDtoMock;
-   @Mock
    private IndexSysRepository indexSysRepositoryMock;
    @Mock
-   IndexSysMapper indexSysMapperMock;
+   UrlMapper urlMapperMock;
 
    //Captor
-   @Captor
-   ArgumentCaptor<IndexSys> indexSysSnapshot;
    @Captor
    ArgumentCaptor<String> stringSnapshot;
 
    @BeforeEach
    void setUp() {
       indexSysService = new IndexSysService(indexSysRepositoryMock,
-        indexSysMapperMock);
-   }
-
-   @Test
-   void createIndexSysExpectedParameters() {
-      when(indexSysMock.getUrl()).thenReturn("www.google.com");
-      when(indexSysMock.getWord()).thenReturn("dang");
-      when(indexSysMapperMock.mapDtoToIndexSys(indexSysDtoMock))
-        .thenReturn(indexSysMock);
-      //Test Service
-      indexSysService.createIndexSys(indexSysDtoMock);
-
-      verify(indexSysRepositoryMock).save(indexSysSnapshot.capture());
-
-      IndexSys indexSysSnapshot = this.indexSysSnapshot.getValue();
-
-      //Assertions
-      assertEquals(indexSysSnapshot.getUrl(),
-        "www.google.com");
-      assertEquals(indexSysSnapshot.getWord(),
-        "dang");
-
+        urlMapperMock);
    }
 
    @Test
@@ -75,27 +50,22 @@ public class IndexSysMockTest {
       List<IndexSys> indexSysList = new ArrayList<>();
       for (int i = 0; i < 3; i++) {
          indexSysList.add(new IndexSys("url" + i,
-           "word" + i,
            false));
       }
-      when(indexSysMapperMock.mapIndexSysToDto(any(IndexSys.class)))
-        .thenReturn(new IndexSysDto(indexSysList.get(0).getUrl(),
-          indexSysList.get(0).getWord()))
-        .thenReturn(new IndexSysDto(indexSysList.get(1).getUrl(),
-          indexSysList.get(1).getWord()))
-        .thenReturn(new IndexSysDto(indexSysList.get(2).getUrl(),
-          indexSysList.get(2).getWord()));
+      when(urlMapperMock.mapIndexSysToDto(any(IndexSys.class)))
+        .thenReturn(new RequestUrlDto(indexSysList.get(0).getUrl()))
+        .thenReturn(new RequestUrlDto(indexSysList.get(1).getUrl()))
+        .thenReturn(new RequestUrlDto(indexSysList.get(2).getUrl()));
 
       when(indexSysRepositoryMock.findAll()).thenReturn(indexSysList);
 
       //Test Service
-      List<IndexSysDto> testList = indexSysService.getAllIndexSys();
+      List<RequestUrlDto> testList = indexSysService.getAllIndexSys();
 
       for (int i = 0; i < 3; i++) {
          assertEquals(testList.get(i).getUrl(),
            "url" + i);
-         assertEquals(testList.get(i).getWord(),
-           "word" + i);
+
       }
    }
 
@@ -121,25 +91,27 @@ public class IndexSysMockTest {
       indexSysDto2.setUrl("www.google.com");
       indexSysDto2.setWord("dang");
 
-      assertTrue(indexSysDto.equals(indexSysDto2));
-      assertEquals(indexSysDto.getUrl(),"www.google.com");
-      assertEquals(indexSysDto.getWord(),"dang");
+      assertEquals(indexSysDto2,
+        indexSysDto);
+      assertEquals(indexSysDto.getUrl(),
+        "www.google.com");
+      assertEquals(indexSysDto.getWord(),
+        "dang");
 
 
    }
 
    @Test
    void indexSysTest() {
-      IndexSys indexSys= new IndexSys();
+      IndexSys indexSys = new IndexSys();
       indexSys.setUrl("www.google.com");
-      indexSys.setWord("dang");
-      IndexSys indexSys2= new IndexSys();
+      IndexSys indexSys2 = new IndexSys();
       indexSys2.setUrl("www.google.com");
-      indexSys2.setWord("dang");
 
-      assertTrue(indexSys.equals(indexSys2));
-      assertEquals(indexSys.getUrl(),"www.google.com");
-      assertEquals(indexSys.getWord(),"dang");
+      assertEquals(indexSys2,
+        indexSys);
+      assertEquals(indexSys.getUrl(),
+        "www.google.com");
 
    }
 

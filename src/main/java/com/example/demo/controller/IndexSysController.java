@@ -33,8 +33,8 @@ public class IndexSysController {
    }
 
    @GetMapping("")
-   public ResponseEntity<List<IndexSysDto>> getAllIndexSys() {
-      List<IndexSysDto> authorizedIndexList = indexSysService.getAllIndexSys();
+   public ResponseEntity<List<RequestUrlDto>> getAllIndexSys() {
+      List<RequestUrlDto> authorizedIndexList = indexSysService.getAllIndexSys();
       if (authorizedIndexList.isEmpty())
          return ResponseEntity.status(HttpStatus.NO_CONTENT)
            .body(authorizedIndexList);

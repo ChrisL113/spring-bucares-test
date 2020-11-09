@@ -14,7 +14,7 @@ import {
   showInfoSnackbar,
   showSuccessSnackbar,
 } from '../actions/notificationActions'
-import { deleteWord, fetchWords } from '../actions/wordsActions'
+import { deleteUrl, fetchUrls } from '../actions/wordsActions'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,7 +34,7 @@ const ListIndices = () => {
   const words = useSelector(state => state.words.items)
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchWords()).then(res => {
+    dispatch(fetchUrls()).then(res => {
       switch (res.status) {
         case 500:
           dispatch(showErrorSnackbar(res.msg))
@@ -51,7 +51,7 @@ const ListIndices = () => {
   }, [])
 
   const onDelete = (url, index) => {
-    dispatch(deleteWord(url, index)).then(res => {
+    dispatch(deleteUrl(url, index)).then(res => {
       switch (res.status) {
         case 200:
           dispatch(showSuccessSnackbar(res.msg))
@@ -72,14 +72,14 @@ const ListIndices = () => {
   return (
     <Grid item xs={12} md={6}>
       <Typography variant='h6' className={classes.title}>
-        URL and words
+        URLs
       </Typography>
       <div className={classes.demo}>
         <List>
           {words
             ? words.map((obj, index) => (
                 <ListItem key={obj.url}>
-                  <ListItemText primary={obj.word} secondary={obj.url} />
+                  <ListItemText primary={obj.url} />
                   <ListItemSecondaryAction>
                     <IconButton
                       onClick={() => {

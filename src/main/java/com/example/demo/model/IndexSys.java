@@ -17,8 +17,6 @@ public class IndexSys implements Persistable<String> {
 
    @Id
    private String url;
-   @NotBlank(message = "word is required")
-   private String word;
 
    @Transient
    private boolean update;

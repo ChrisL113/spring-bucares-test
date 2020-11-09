@@ -1,4 +1,4 @@
-import { ERASE_WORD, FETCH_WORDS } from '../actions/types'
+import {  ERASE_URL, FETCH_URLS } from '../actions/types'
 
 const initialState = {
   items: [],
@@ -6,12 +6,12 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case FETCH_WORDS:
+    case FETCH_URLS:
       return {
         ...state,
         items: action.payload,
       }
-    case ERASE_WORD:
+    case ERASE_URL:
       return {
         ...state,
         items: state.items.filter((item, index) => index !== action.payload),
