@@ -28,7 +28,7 @@ export const validateAlphabetAnSize = word => {
   if (/[^a-zA-Z]/.test(word)){
     errors.word = true
   } 
-  if (word.length >= 15) errors.word = true
+  if (word.length > 15) errors.word = true
 
   return {
     errors,
