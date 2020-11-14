@@ -8,3 +8,6 @@ export const CLEAR = 'CLEAR'
 export const ERROR = 'ERROR'
 export const INFO = 'INFO'
 export const WARNING = 'WARNING'
+
+//Tag Actions
+export const FETCH_TAG = 'FETCH_TAG'

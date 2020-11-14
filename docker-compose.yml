@@ -16,7 +16,7 @@ services:
       - bucaresmysql
     image: "kristolopez/bucarestest:0.0.2-SNAPSHOT"
     ports:
-      - 8084:80
+      - 8080:80
   bucaresmysql:
     container_name: bucaresmysql
     image: "mysql:8"
@@ -26,8 +26,6 @@ services:
       MYSQL_DATABASE: bucares
       MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: superstrongpassword
-    ports:
-      - 9901:3306
     volumes:
     - "db:/var/lib/mysql"
 

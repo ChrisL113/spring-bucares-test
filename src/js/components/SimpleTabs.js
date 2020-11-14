@@ -1,11 +1,13 @@
-import { Typography } from '@material-ui/core'
+import { Chip } from '@material-ui/core'
 import AppBar from '@material-ui/core/AppBar'
 import Box from '@material-ui/core/Box'
 import { makeStyles } from '@material-ui/core/styles'
 import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchTag } from '../actions/tagActions'
 import IndexInput from './IndexInput'
 import ListIndices from './ListIndices'
 
@@ -20,11 +22,7 @@ const TabPanel = props => {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box p={3}>
-          {children}
-        </Box>
-      )}
+      {value === index && <Box p={3}>{children}</Box>}
     </div>
   )
 }
@@ -47,11 +45,21 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
   },
+  tag: {
+    position: "fixed",
+    bottom: 10,
+    right:0,
+  }
 }))
 
 const SimpleTabs = () => {
   const classes = useStyles()
+  const dispatch = useDispatch()
   const [value, setValue] = React.useState(0)
+  const tag = useSelector(state => state.tag.item)
+  useEffect(() => {
+    dispatch(fetchTag())
+  }, [])
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
@@ -73,8 +81,9 @@ const SimpleTabs = () => {
         <IndexInput />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <ListIndices/>
+        <ListIndices />
       </TabPanel>
+      <Chip className={classes.tag} label={"instance: "+tag} color='primary' />
     </div>
   )
 }
