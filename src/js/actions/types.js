@@ -11,3 +11,4 @@ export const WARNING = 'WARNING'
 
 //Tag Actions
 export const FETCH_TAG = 'FETCH_TAG'
+export const FETCH_VERSION = 'FETCH_VERSION'

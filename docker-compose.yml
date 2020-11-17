@@ -7,9 +7,9 @@ services:
       - bucarestest2
     image: "nginx:1.19.4-alpine"
     volumes:
-    - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx.conf:/etc/nginx/nginx.conf
     ports:
-    - 80:80
+      - 80:80
   bucarestest1:
     build:
       context: .
@@ -17,8 +17,9 @@ services:
     container_name: bucarestest1
     environment:
       SERVER_PORT: 8080
-      MYSQL_HOST: bucaresmysql
-      MYSQL_PORT: 3306
+      SPRING_DATA_SOURCE_URL: jdbc:mysql://bucaresmysql:3306/bucares?serverTimezone=UTC&max_allowed_packet=15728640
+      SPRING_DATA_SOURCE_DRIVER: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_DIALECT: org.hibernate.dialect.MySQL8Dialect
       MYSQL_USERNAME: root
       MYSQL_ROOT_PASSWORD: superstrongpassword
       MYSQL_DATABASE: bucares
@@ -35,8 +36,9 @@ services:
     container_name: bucarestest2
     environment:
       SERVER_PORT: 8081
-      MYSQL_HOST: bucaresmysql
-      MYSQL_PORT: 3306
+      SPRING_DATA_SOURCE_URL: jdbc:mysql://bucaresmysql:3306/bucares?serverTimezone=UTC&max_allowed_packet=15728640
+      SPRING_DATA_SOURCE_DRIVER: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_DIALECT: org.hibernate.dialect.MySQL8Dialect
       MYSQL_USERNAME: root
       MYSQL_ROOT_PASSWORD: superstrongpassword
       MYSQL_DATABASE: bucares
@@ -55,7 +57,7 @@ services:
       MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: superstrongpassword
     volumes:
-    - "db:/var/lib/mysql"
+      - "db:/var/lib/mysql"
 
 volumes:
   db:

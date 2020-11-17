@@ -8,6 +8,7 @@ import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTag } from '../actions/tagActions'
+import { fetchVersion } from '../actions/versionActions'
 import IndexInput from './IndexInput'
 import ListIndices from './ListIndices'
 
@@ -57,8 +58,10 @@ const SimpleTabs = () => {
   const dispatch = useDispatch()
   const [value, setValue] = React.useState(0)
   const tag = useSelector(state => state.tag.item)
+  const version = useSelector(state => state.version.item)
   useEffect(() => {
     dispatch(fetchTag())
+    dispatch(fetchVersion())
   }, [])
 
   const handleChange = (event, newValue) => {
@@ -83,7 +86,7 @@ const SimpleTabs = () => {
       <TabPanel value={value} index={1}>
         <ListIndices />
       </TabPanel>
-      <Chip className={classes.tag} label={"instance: "+tag} color='primary' />
+      <Chip className={classes.tag} label={"Instance: "+tag + ", Version: "+ version} color='primary' />
     </div>
   )
 }

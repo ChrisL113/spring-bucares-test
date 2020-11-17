@@ -1,7 +1,7 @@
 import { FETCH_TAG } from "../actions/types"
 
 const initialState = {
-  item: 'only frontend running',
+  item: 'unknown',
 }
 
 export default function (state = initialState, action) {

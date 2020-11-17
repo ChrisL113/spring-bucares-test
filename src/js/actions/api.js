@@ -8,3 +8,4 @@ export const CHECK_WORD = ROOT_ROUTE + 'content/check'
 
 //Tag Routers
 export const GET_TAG = ROOT_ROUTE + 'tag'
+export const GET_VERSION = ROOT_ROUTE + 'version'
