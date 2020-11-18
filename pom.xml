@@ -193,26 +193,31 @@
                             <goal>report</goal>
                         </goals>
                     </execution>
-                    <!--                    <execution>-->
-                    <!--                        <id>jacoco-check</id>-->
-                    <!--                        <goals>-->
-                    <!--                            <goal>check</goal>-->
-                    <!--                        </goals>-->
-                    <!--                        <configuration>-->
-                    <!--                            <rules>-->
-                    <!--                                <rule>-->
-                    <!--                                    <element>PACKAGE</element>-->
-                    <!--                                    <limits>-->
-                    <!--                                        <limit>-->
-                    <!--                                            <counter>LINE</counter>-->
-                    <!--                                            <value>COVEREDRATIO</value>-->
-                    <!--                                            <minimum>0.9</minimum>-->
-                    <!--                                        </limit>-->
-                    <!--                                    </limits>-->
-                    <!--                                </rule>-->
-                    <!--                            </rules>-->
-                    <!--                        </configuration>-->
-                    <!--                    </execution>-->
+                    <execution>
+                        <id>jacoco-check</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <rule>
+                                    <element>package
+                                    </element>
+                                    <limits>
+                                        <limit>
+                                            <counter>line
+                                            </counter>
+                                            <value>
+                                                coveredratio
+                                            </value>
+                                            <minimum>0.9
+                                            </minimum>
+                                        </limit>
+                                    </limits>
+                                </rule>
+                            </rules>
+                        </configuration>
+                    </execution>
                 </executions>
                 <configuration>
                     <excludes>
@@ -282,5 +287,6 @@
         </plugins>
         <finalName>bucarestest</finalName>
     </build>
+    <!--    Sonar-maven-plugin -->
 
 </project>
