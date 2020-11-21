@@ -122,44 +122,44 @@
                     <nodeVersion>v12.18.4</nodeVersion>
                     <npmVersion>6.14.6</npmVersion>
                 </configuration>
-                <!--                <executions>-->
-                <!--                    <execution>-->
-                <!--                        <id>install node and npm</id>-->
-                <!--                        <goals>-->
-                <!--                            <goal>install-node-and-npm</goal>-->
-                <!--                        </goals>-->
-                <!--                    </execution>-->
-                <!--                    <execution>-->
-                <!--                        <id>npm install</id>-->
-                <!--                        <goals>-->
-                <!--                            <goal>npm</goal>-->
-                <!--                        </goals>-->
-                <!--                        <configuration>-->
-                <!--                            <arguments>install</arguments>-->
-                <!--                        </configuration>-->
-                <!--                    </execution>-->
-                <!--                    <execution>-->
-                <!--                        <id>webpack build</id>-->
-                <!--                        <goals>-->
-                <!--                            <goal>npm</goal>-->
-                <!--                        </goals>-->
-                <!--                        <configuration>-->
-                <!--                            <arguments>run</arguments>-->
-                <!--                            <arguments>build</arguments>-->
-                <!--                        </configuration>-->
+                                <executions>
+                                    <execution>
+                                        <id>install node and npm</id>
+                                        <goals>
+                                            <goal>install-node-and-npm</goal>
+                                        </goals>
+                                    </execution>
+                                    <execution>
+                                        <id>npm install</id>
+                                        <goals>
+                                            <goal>npm</goal>
+                                        </goals>
+                                        <configuration>
+                                            <arguments>install</arguments>
+                                        </configuration>
+                                    </execution>
+                                    <execution>
+                                        <id>webpack build</id>
+                                        <goals>
+                                            <goal>npm</goal>
+                                        </goals>
+                                        <configuration>
+                                            <arguments>run</arguments>
+                                            <arguments>build</arguments>
+                                        </configuration>
 
-                <!--                    </execution>-->
-                <!--                    <execution>-->
-                <!--                        <id>run tests</id>-->
-                <!--                        <goals>-->
-                <!--                            <goal>npm</goal>-->
-                <!--                        </goals>-->
+                                    </execution>
+                                    <execution>
+                                        <id>run tests</id>
+                                        <goals>
+                                            <goal>npm</goal>
+                                        </goals>
 
-                <!--                        <configuration>-->
-                <!--                            <arguments>test</arguments>-->
-                <!--                        </configuration>-->
-                <!--                    </execution>-->
-                <!--                </executions>-->
+                                        <configuration>
+                                            <arguments>test</arguments>
+                                        </configuration>
+                                    </execution>
+                                </executions>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -274,13 +274,13 @@
                             <goal>build</goal>
                         </goals>
                     </execution>
-<!--                    <execution>-->
-<!--                        <id>deployment</id>-->
-<!--                        <phase>install</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>push</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
+                    <execution>
+                        <id>deployment</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
                 </executions>
                 <dependencies>
                     <dependency>
