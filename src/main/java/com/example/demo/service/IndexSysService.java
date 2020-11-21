@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -28,22 +27,26 @@ public class IndexSysService {
 
 
       if (!indexSysRepository.existsById(indexSysDto.getUrl())) {
-         String word =indexSysDto.getWord().toLowerCase();
+         String word = indexSysDto.getWord().toLowerCase();
          try {
             URL url = new URL(indexSysDto.getUrl());
-            Scanner s = new Scanner(url.openStream());
-            while (s.hasNext()) {
-               if (s.next().equalsIgnoreCase(word)) {
-                  return "rejected_word";
+            try (Scanner s = new Scanner(url.openStream())) {
+               while (s.hasNext()) {
+                  if (s.next().equalsIgnoreCase(word)) {
+                     return "rejected_word";
+                  }
                }
+               IndexSys indexSys = new IndexSys();
+               indexSys.setUrl(indexSysDto.getUrl());
+               indexSysRepository.save(indexSys);
+               return "accepted";
+
             }
-            IndexSys indexSys = new IndexSys();
-            indexSys.setUrl(indexSysDto.getUrl());
-            indexSysRepository.save(indexSys);
-            return "accepted";
          } catch (IOException ex) {
+
             ex.printStackTrace();
          }
+
       }
       return "rejected_url";
    }
