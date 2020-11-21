@@ -27,10 +27,10 @@ pipeline {
                 ], 
                 credentialsId: 'kristo_nexus', 
                 groupId: 'com.example', 
-                nexusUrl: 'btc02.dev.lab.plugbox.io:8081/', 
+                nexusUrl: 'btc02.dev.lab.plugbox.io:8081',
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
-                repository: 'http://btc02.dev.lab.plugbox.io:8081/repository/index_sys/', 
+                repository: 'index_sys',
                 version: '0.0.2-SNAPSHOT'
             }
         }
