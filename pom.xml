@@ -262,7 +262,7 @@
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.4.3</version>
                 <configuration>
-                    <repository>kristolopez/${project.build.finalName}
+                    <repository>localhost:8083/${project.build.finalName}
                     </repository>
 
                     <tag>${project.version}</tag>
