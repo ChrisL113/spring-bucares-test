@@ -2,6 +2,7 @@ version: '3'
 
 services:
   sonarqube:
+    restart: unless-stopped
     image: sonarqube:8-community
     depends_on:
       - db
@@ -17,6 +18,7 @@ services:
     ports:
       - '9000:9000'
   db:
+    restart: unless-stopped
     image: postgres:12
     environment:
       POSTGRES_USER: sonar
