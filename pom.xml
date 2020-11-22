@@ -33,7 +33,7 @@
     <distributionManagement>
         <snapshotRepository>
             <id>bucaresnexusdeploy</id>
-            <url>127.0.0.1:8081/repository/index_sys/</url>
+            <url>localhost:8081/repository/index_sys/</url>
         </snapshotRepository>
         <repository>
             <id>bucaresnexusdeploy</id>
