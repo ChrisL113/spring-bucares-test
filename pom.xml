@@ -262,7 +262,7 @@
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.4.3</version>
                 <configuration>
-                    <repository>localhost:8083/${project.build.finalName}
+                    <repository>http://btc02.dev.lab.plugbox.io:8083/${project.build.finalName}
                     </repository>
                     <tag>${project.version}</tag>
                     <buildArgs>
@@ -278,13 +278,13 @@
                             <goal>build</goal>
                         </goals>
                     </execution>
-<!--                    <execution>-->
-<!--                        <id>deployment</id>-->
-<!--                        <phase>deploy</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>push</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
+                    <execution>
+                        <id>deployment</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
                 </executions>
                 <dependencies>
                     <dependency>
