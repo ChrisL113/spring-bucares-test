@@ -24,12 +24,12 @@
     <distributionManagement>
         <snapshotRepository>
             <id>bucaresnexusdeploy</id>
-            <url>http://btc02.dev.lab.plugbox.io:8081/repository/index_sys/</url>
+            <url>localhost:8081/repository/index_sys/</url>
         </snapshotRepository>
         <repository>
             <id>bucaresnexusdeploy</id>
             <uniqueVersion>false</uniqueVersion>
-            <url>http://btc02.dev.lab.plugbox.io:8081/repository/index_sys/</url>
+            <url>localhost:8081/repository/index_sys/</url>
         </repository>
 
     </distributionManagement>
