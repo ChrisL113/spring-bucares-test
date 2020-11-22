@@ -262,7 +262,7 @@
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.4.3</version>
                 <configuration>
-                    <repository>http://btc02.dev.lab.plugbox.io:8083/${project.build.finalName}
+                    <repository>btc02.dev.lab.plugbox.io:8083/${project.build.finalName}
                     </repository>
                     <tag>${project.version}</tag>
                     <buildArgs>
