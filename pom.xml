@@ -257,28 +257,28 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>com.spotify</groupId>-->
-<!--                <artifactId>dockerfile-maven-plugin</artifactId>-->
-<!--                <version>1.4.3</version>-->
-<!--                <configuration>-->
-<!--                    <repository>btc02.dev.lab.plugbox.io:8083/${project.build.finalName}-->
-<!--                    </repository>-->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.3</version>
+                <configuration>
+                    <repository>localhost:8083/${project.build.finalName}
+                    </repository>
 
-<!--                    <tag>${project.version}</tag>-->
-<!--                    <buildArgs>-->
-<!--                        <JAR_FILE>target/${project.build.finalName}.jar-->
-<!--                        </JAR_FILE>-->
-<!--                    </buildArgs>-->
-<!--                </configuration>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>build</id>-->
-<!--                        <phase>install</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>build</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
+                    <tag>${project.version}</tag>
+                    <buildArgs>
+                        <JAR_FILE>target/${project.build.finalName}.jar
+                        </JAR_FILE>
+                    </buildArgs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>build</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
 <!--                    <execution>-->
 <!--                        <id>deployment</id>-->
 <!--                        <phase>install</phase>-->
@@ -286,16 +286,16 @@
 <!--                            <goal>push</goal>-->
 <!--                        </goals>-->
 <!--                    </execution>-->
-<!--                </executions>-->
-<!--                <dependencies>-->
-<!--                    <dependency>-->
-<!--                        <groupId>javax.activation</groupId>-->
-<!--                        <artifactId>javax.activation-api</artifactId>-->
-<!--                        <version>1.2.0</version>-->
-<!--                    </dependency>-->
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>javax.activation</groupId>
+                        <artifactId>javax.activation-api</artifactId>
+                        <version>1.2.0</version>
+                    </dependency>
 
-<!--                </dependencies>-->
-<!--            </plugin>-->
+                </dependencies>
+            </plugin>
         </plugins>
         <finalName>bucarestest</finalName>
     </build>
