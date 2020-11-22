@@ -11,7 +11,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>bucarestest</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.4-SNAPSHOT</version>
     <name>demo</name>
     <description>Demo project for Spring Boot</description>
 
@@ -20,7 +20,6 @@
         <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
 
     <distributionManagement>
         <snapshotRepository>
