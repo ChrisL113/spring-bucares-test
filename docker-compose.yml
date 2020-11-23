@@ -10,10 +10,10 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
     ports:
       - 80:80
+
   bucarestest1:
     build:
-      context: .
-      dockerfile: Dockerfile
+
     container_name: bucarestest1
     environment:
       SERVER_PORT: 8080
