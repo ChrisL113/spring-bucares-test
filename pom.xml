@@ -11,7 +11,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>bucarestest</artifactId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.0.8-SNAPSHOT</version>
     <name>demo</name>
     <description>Demo project for Spring Boot</description>
 
