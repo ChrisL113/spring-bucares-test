@@ -275,13 +275,13 @@
                             <goal>build</goal>
                         </goals>
                     </execution>
-                    <execution>
-                        <id>build</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>push</goal>
-                        </goals>
-                    </execution>
+<!--                    <execution>-->
+<!--                        <id>build</id>-->
+<!--                        <phase>deploy</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>push</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
                 </executions>
                 <dependencies>
                     <dependency>
