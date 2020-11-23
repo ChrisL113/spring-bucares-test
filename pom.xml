@@ -256,7 +256,9 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.4.3</version>
+
                 <configuration>
+                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
                     <repository>btc02.dev.lab.plugbox.io:8083/${project.build.finalName}
                     </repository>
 
@@ -275,13 +277,13 @@
                             <goal>build</goal>
                         </goals>
                     </execution>
-<!--                    <execution>-->
-<!--                        <id>build</id>-->
-<!--                        <phase>deploy</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>push</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
+                    <execution>
+                        <id>nexus</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
                 </executions>
                 <dependencies>
                     <dependency>
