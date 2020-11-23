@@ -24,7 +24,7 @@ services:
       INSTANCE: 1
     depends_on:
       - bucaresmysql
-    image: "kristolopez/bucarestest:0.0.2-SNAPSHOT"
+    image: kristolopez/bucarestest:latest
     ports:
       - 8080
   bucarestest2:
@@ -40,7 +40,7 @@ services:
       INSTANCE: 2
     depends_on:
       - bucaresmysql
-    image: "kristolopez/bucarestest:0.0.2-SNAPSHOT"
+    image: kristolopez/bucarestest:latest
     ports:
       - 8081
   bucaresmysql:

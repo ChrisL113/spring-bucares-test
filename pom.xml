@@ -259,10 +259,10 @@
 
                 <configuration>
                     <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-                    <repository>btc02.dev.lab.plugbox.io:8083/${project.build.finalName}
+                    <repository>
+                        btc02.dev.lab.plugbox.io:8083/${project.build.finalName}
                     </repository>
 
-                    <tag>${project.version}</tag>
                     <buildArgs>
                         <JAR_FILE>target/${project.build.finalName}.jar
                         </JAR_FILE>
@@ -271,11 +271,14 @@
                 <executions>
 
                     <execution>
-                        <id>deployment</id>
+                        <id>deployment_version</id>
                         <phase>install</phase>
                         <goals>
                             <goal>build</goal>
                         </goals>
+                        <configuration>
+                            <tag>${project.version}</tag>
+                        </configuration>
                     </execution>
                     <execution>
                         <id>nexus</id>
@@ -283,6 +286,19 @@
                         <goals>
                             <goal>push</goal>
                         </goals>
+                        <configuration>
+                            <tag>${project.version}</tag>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>deployment_latest</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
+                        <configuration>
+                            <tag>latest</tag>
+                        </configuration>
                     </execution>
                 </executions>
                 <dependencies>
