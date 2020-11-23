@@ -269,7 +269,7 @@
                 <executions>
 
                     <execution>
-                        <id>build</id>
+                        <id>deployment</id>
                         <phase>install</phase>
                         <goals>
                             <goal>build</goal>
