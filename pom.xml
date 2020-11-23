@@ -276,10 +276,26 @@
                         <goals>
                             <goal>build</goal>
                         </goals>
+                    </execution>
+                    <execution>
+                        <id>tag_version</id>
+                        <goals>
+                            <goal>tag</goal>
+                        </goals>
                         <configuration>
                             <tag>${project.version}</tag>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>tag_latest</id>
+                        <goals>
+                            <goal>tag</goal>
+                        </goals>
+                        <configuration>
+                            <tag>latest</tag>
+                        </configuration>
+                    </execution>
+
                     <execution>
                         <id>nexus</id>
                         <phase>deploy</phase>
