@@ -11,7 +11,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>bucarestest</artifactId>
-    <version>0.0.4-SNAPSHOT</version>
+    <version>0.0.5-SNAPSHOT</version>
     <name>demo</name>
     <description>Demo project for Spring Boot</description>
 
@@ -22,14 +22,18 @@
     </properties>
 
     <distributionManagement>
+
         <snapshotRepository>
             <id>nexus</id>
-            <url>http://btc02.dev.lab.plugbox.io:8081/repository/index_sys/</url>
+            <uniqueVersion>false</uniqueVersion>
+            <url>http://btc02.dev.lab.plugbox.io:8081/repository/index_sys/
+            </url>
         </snapshotRepository>
         <repository>
             <id>nexus</id>
             <uniqueVersion>false</uniqueVersion>
-            <url>http://btc02.dev.lab.plugbox.io:8081/repository/index_sys/</url>
+            <url>http://btc02.dev.lab.plugbox.io:8081/repository/index_sys/
+            </url>
         </repository>
 
     </distributionManagement>
@@ -117,44 +121,44 @@
                     <nodeVersion>v12.18.4</nodeVersion>
                     <npmVersion>6.14.6</npmVersion>
                 </configuration>
-                                                <executions>
-                                                    <execution>
-                                                        <id>install node and npm</id>
-                                                        <goals>
-                                                            <goal>install-node-and-npm</goal>
-                                                        </goals>
-                                                    </execution>
-                                                    <execution>
-                                                        <id>npm install</id>
-                                                        <goals>
-                                                            <goal>npm</goal>
-                                                        </goals>
-                                                        <configuration>
-                                                            <arguments>install</arguments>
-                                                        </configuration>
-                                                    </execution>
-                                                    <execution>
-                                                        <id>webpack build</id>
-                                                        <goals>
-                                                            <goal>npm</goal>
-                                                        </goals>
-                                                        <configuration>
-                                                            <arguments>run</arguments>
-                                                            <arguments>build</arguments>
-                                                        </configuration>
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>webpack build</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run</arguments>
+                            <arguments>build</arguments>
+                        </configuration>
 
-                                                    </execution>
-                                                    <execution>
-                                                        <id>run tests</id>
-                                                        <goals>
-                                                            <goal>npm</goal>
-                                                        </goals>
+                    </execution>
+                    <execution>
+                        <id>run tests</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
 
-                                                        <configuration>
-                                                            <arguments>test</arguments>
-                                                        </configuration>
-                                                    </execution>
-                                                </executions>
+                        <configuration>
+                            <arguments>test</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -263,6 +267,7 @@
                     </buildArgs>
                 </configuration>
                 <executions>
+
                     <execution>
                         <id>build</id>
                         <phase>install</phase>
@@ -270,13 +275,6 @@
                             <goal>build</goal>
                         </goals>
                     </execution>
-<!--                    <execution>-->
-<!--                        <id>deployment</id>-->
-<!--                        <phase>install</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>push</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
                 </executions>
                 <dependencies>
                     <dependency>
@@ -300,7 +298,8 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <sonar.host.url>http://btc02.dev.lab.plugbox.io:9000</sonar.host.url>
+                <sonar.host.url>http://btc02.dev.lab.plugbox.io:9000
+                </sonar.host.url>
 
             </properties>
         </profile>
