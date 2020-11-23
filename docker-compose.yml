@@ -1,6 +1,9 @@
 version: '3'
+
 services:
+
   loadbalancer:
+    restart: unless-stopped
     container_name: loadbalancer
     depends_on:
       - bucarestest1
@@ -12,6 +15,7 @@ services:
       - 80:80
 
   bucarestest1:
+    restart: unless-stopped
     container_name: bucarestest1
     environment:
       SERVER_PORT: 8080
@@ -24,10 +28,11 @@ services:
       INSTANCE: 1
     depends_on:
       - bucaresmysql
-    image: kristolopez/bucarestest:latest
+    image: btc02.dev.lab.plugbox.io:8083/bucarestest:latest
     ports:
       - 8080
   bucarestest2:
+    restart: unless-stopped
     container_name: bucarestest2
     environment:
       SERVER_PORT: 8081
@@ -40,10 +45,11 @@ services:
       INSTANCE: 2
     depends_on:
       - bucaresmysql
-    image: kristolopez/bucarestest:latest
+    image: btc02.dev.lab.plugbox.io:8083/bucarestest:latest
     ports:
       - 8081
   bucaresmysql:
+    restart: unless-stopped
     container_name: bucaresmysql
     image: "mysql:8"
     environment:
