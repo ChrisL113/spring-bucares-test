@@ -261,14 +261,14 @@
 
                     <execution>
                         <id>build_and_tag_latest</id>
-                        <phase>none</phase>
+                        <phase>package</phase>
                         <goals>
                             <goal>build</goal>
                         </goals>
                     </execution>
                     <execution>
                         <id>tag_version</id>
-                        <phase>none</phase>
+                        <phase>package</phase>
                         <goals>
                             <goal>tag</goal>
                         </goals>
