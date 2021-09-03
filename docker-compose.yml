@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+
+  nubedian-test1:
+    restart: unless-stopped
+    container_name: nubedian-test1
+    environment:
+      SERVER_PORT: 8080
+      SPRING_DATA_SOURCE_URL: jdbc:mysql://nubediantest:3306/nubedian?serverTimezone=UTC&max_allowed_packet=15728640
+      SPRING_DATA_SOURCE_DRIVER: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_DIALECT: org.hibernate.dialect.MySQL8Dialect
+      MYSQL_ROOT_PASSWORD: superstrongpassword
+      MYSQL_DATABASE: nubedian
+      INSTANCE: 1
+    depends_on:
+      - nubediantest
+    image: kristolopez/nubedian-test:0.0.1-SNAPSHOT
+    ports:
+      - 8080:80
+  nubediantest:
+    restart: unless-stopped
+    container_name: nubetestest
+    image: "mysql:8"
+    environment:
+      MYSQL_HOST: nubediantest
+      MYSQL_DATABASE: nubedian
+      MYSQL_ROOT_PASSWORD: superstrongpassword
+    volumes:
+      - "db:/var/lib/mysql"
+
+volumes:
+  db:
