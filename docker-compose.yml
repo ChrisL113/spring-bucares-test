@@ -7,24 +7,28 @@ services:
     container_name: nubedian-test1
     environment:
       SERVER_PORT: 8080
-      SPRING_DATA_SOURCE_URL: jdbc:mysql://nubediantest:3306/nubedian?serverTimezone=UTC&max_allowed_packet=15728640
+      SPRING_DATA_SOURCE_URL: jdbc:mysql://nubedian-testmysql:3306/nubedian?serverTimezone=UTC&max_allowed_packet=15728640
       SPRING_DATA_SOURCE_DRIVER: com.mysql.cj.jdbc.Driver
       SPRING_JPA_DIALECT: org.hibernate.dialect.MySQL8Dialect
+      MYSQL_USERNAME: root
       MYSQL_ROOT_PASSWORD: superstrongpassword
       MYSQL_DATABASE: nubedian
       INSTANCE: 1
     depends_on:
-      - nubediantest
+      - nubedian-testmysql
     image: kristolopez/nubedian-test:0.0.1-SNAPSHOT
     ports:
       - 8080:80
-  nubediantest:
+  nubedian-testmysql:
     restart: unless-stopped
-    container_name: nubetestest
+    container_name: nubedian-testmysql
     image: "mysql:8"
+    cap_add:
+      - SYS_NICE  # CAP_SYS_NICE
     environment:
-      MYSQL_HOST: nubediantest
+      MYSQL_HOST: nubedian-testmysql
       MYSQL_DATABASE: nubedian
+      MYSQL_USERNAME: root
       MYSQL_ROOT_PASSWORD: superstrongpassword
     volumes:
       - "db:/var/lib/mysql"
