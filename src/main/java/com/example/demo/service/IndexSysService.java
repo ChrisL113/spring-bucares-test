@@ -6,6 +6,8 @@ import com.example.demo.model.IndexSys;
 import com.example.demo.dto.IndexSysDto;
 import com.example.demo.repository.IndexSysRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -55,6 +57,14 @@ public class IndexSysService {
    public List<RequestUrlDto> getAllIndexSys() {
       return indexSysRepository.findAll().stream()
         .map(urlMapper::mapIndexSysToDto).collect(toList());
+
+   }
+
+   @Transactional(readOnly = true)
+   public List<RequestUrlDto> getAllIn() {
+      Pageable firstPageWithTwoElements = PageRequest.of(0, 2);
+      return indexSysRepository.findAll(firstPageWithTwoElements).stream()
+              .map(urlMapper::mapIndexSysToDto).collect(toList());
 
    }
 
