@@ -9,4 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ResponseDto {
    String state;
+   
+   Integer another:
 }
