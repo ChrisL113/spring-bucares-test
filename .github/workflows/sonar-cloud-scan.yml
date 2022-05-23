@@ -10,8 +10,6 @@ jobs:
     name: SonarCloud Trigger
     runs-on: ubuntu-latest
     steps:
-      - name: Clone Repository
-        uses: actions/checkout@v3
       - name: Set up JDK
         uses: actions/setup-java@v1
         with:
