@@ -101,7 +101,7 @@
                     <npmVersion>6.14.6</npmVersion>
                 </configuration>
                 <executions>
-                    <execution>
+                    <!-- <execution>
                         <id>install node and npm</id>
                         <goals>
                             <goal>install-node-and-npm</goal>
@@ -137,7 +137,7 @@
                             <arguments>test</arguments>
                         </configuration>
                     </execution>
-                </executions>
+                </executions> -->
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -264,17 +264,6 @@
                         </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-                    <repository>
-                        btc02.dev.lab.plugbox.io:8083/${project.build.finalName}
-                    </repository>
-
-                    <buildArgs>
-                        <JAR_FILE>target/${project.build.finalName}.jar
-                        </JAR_FILE>
-                    </buildArgs>
-                </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>javax.activation</groupId>
