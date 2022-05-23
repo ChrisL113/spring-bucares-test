@@ -19,6 +19,7 @@
         <java.version>14</java.version>
         <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <sonar.organization>spring-bucares</sonar.organization>
     </properties>
 
     <distributionManagement>
@@ -305,20 +306,5 @@
 
         <finalName>bucarestest</finalName>
     </build>
-
-    <profiles>
-        <profile>
-            <id>sonar</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <sonar.host.url>http://btc02.dev.lab.plugbox.io:9000
-                </sonar.host.url>
-
-            </properties>
-        </profile>
-
-    </profiles>
 
 </project>
