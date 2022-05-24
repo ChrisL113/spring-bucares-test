@@ -1,26 +1,26 @@
-name: SonarCloud Scan
-
-on:
-  push:
-    branches:
-      - '**'        # matches every branch
-      - '!master'   # excludes master
-jobs:
-  sonarCloudTrigger:
-    name: SonarCloud Trigger
-    runs-on: ubuntu-latest
-    steps:
-      - name: Clone Repository
-        uses: actions/checkout@v3
-      - name: Set up JDK
-        uses: actions/setup-java@v1
-        with:
-          java-version: "17"
-      - name: run maven verify phase
-        run: mvn verify sonar:sonar
-          -Dsonar.host.url=https://sonarcloud.io/project/overview?id=KristoLopez_spring-bucares-test
-          -Dsonar.organization=spring-bucares
-          -Dsonar.projectKey=KristoLopez_spring-bucares-test
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN}}
+# name: SonarCloud Scan
+#
+# on:
+#   push:
+#     branches:
+#       - '**'        # matches every branch
+#       - '!master'   # excludes master
+# jobs:
+#   sonarCloudTrigger:
+#     name: SonarCloud Trigger
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Clone Repository
+#         uses: actions/checkout@v3
+#       - name: Set up JDK
+#         uses: actions/setup-java@v1
+#         with:
+#           java-version: "17"
+#       - name: run maven verify phase
+#         run: mvn verify sonar:sonar
+#           -Dsonar.host.url=https://sonarcloud.io/project/overview?id=KristoLopez_spring-bucares-test
+#           -Dsonar.organization=spring-bucares
+#           -Dsonar.projectKey=KristoLopez_spring-bucares-test
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN}}
