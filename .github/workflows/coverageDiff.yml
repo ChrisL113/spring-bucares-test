@@ -1,22 +1,22 @@
-name: Coverage Diff
-
-on:
-  push:
-    branches:
-      - '**'        # matches every branch
-      - '!master'   # excludes master
-  pull_request: {}
-
-jobs:
-  test:
-    name: Coverage Diff
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-      - run: mvn install test
-      - name: Coverage Diff
-        uses: greatwizard/coverage-diff-action@v1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+#name: Coverage Diff
+#
+#on:
+#  push:
+#    branches:
+#      - '**'        # matches every branch
+#      - '!master'   # excludes master
+#  pull_request: {}
+#
+#jobs:
+#  test:
+#    name: Coverage Diff
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/setup-node@v2
+#      - run: mvn install test
+#      - name: Coverage Diff
+#        uses: greatwizard/coverage-diff-action@v1
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
