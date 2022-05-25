@@ -18,5 +18,5 @@ jobs:
       - run: mvn install test
       - name: Coverage Diff
         uses: greatwizard/coverage-diff-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
