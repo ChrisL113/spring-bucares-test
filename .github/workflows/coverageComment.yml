@@ -12,8 +12,8 @@ jobs:
     name: Coverage Comment
     runs-on: ubuntu-latest
     steps:
-      - name: mvn install
-        run: mvn install test
+      - uses: actions/checkout@v2
+      - run: mvn install test
       - name: Display coverage
         uses: ewjoachim/coverage-comment-action@v1
         with:
