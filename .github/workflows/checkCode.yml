@@ -16,7 +16,7 @@ jobs:
       - name: check javascript
         uses: themichaelhall/check-code-coverage@v1
         with:
-          required-percentage: 100
+          required-percentage: 60
           report: 'coverage/clover.xml'
 
       - name: check java
