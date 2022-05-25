@@ -1,19 +1,19 @@
-name: Coverage Check
-
-on:
-  push:
-    branches:
-      - '**'        # matches every branch
-      - '!master'   # excludes master
-jobs:
-  CoverageCheck:
-    name: coverage check
-    runs-on: ubuntu-latest
-    steps:
-      - name: coverage Check
-        uses: devmasx/coverage-check-action@v1.2.0
-        with:
-          type: jacoco
-          result_path: target/jacoco.exec
-          min_coverage: 90
-          token : ${{ secrets.GITHUB_TOKEN}}
+#name: Coverage Check
+#
+#on:
+#  push:
+#    branches:
+#      - '**'        # matches every branch
+#      - '!master'   # excludes master
+#jobs:
+#  CoverageCheck:
+#    name: coverage check
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: coverage Check
+#        uses: devmasx/coverage-check-action@v1.2.0
+#        with:
+#          type: jacoco
+#          result_path: target/jacoco.exec
+#          min_coverage: 90
+#          token : ${{ secrets.GITHUB_TOKEN}}
