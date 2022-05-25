@@ -20,21 +20,30 @@ jobs:
           report: 'coverage/clover.xml'
 #  jacoco
 
-      # generates coverage-report.md and publishes as checkrun
-      - name: JaCoCo Code Coverage Report
-        id: jacoco_reporter
-        uses: PavanMudigonda/jacoco-reporter@v4.5
-        with:
-          coverage_results_path: target/site/jacoco/jacoco.xml
-          coverage_report_name: Coverage
-          coverage_report_title: JaCoCo
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          skip_check_run: false
-          minimum_coverage: 70
-          fail_below_threshold: true
-          publish_only_summary: false
+      # # generates coverage-report.md and publishes as checkrun
+      # - name: JaCoCo Code Coverage Report
+      #   id: jacoco_reporter
+      #   uses: PavanMudigonda/jacoco-reporter@v4.5
+      #   with:
+      #     coverage_results_path: target/site/jacoco/jacoco.xml
+      #     coverage_report_name: Coverage
+      #     coverage_report_title: JaCoCo
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     skip_check_run: false
+      #     minimum_coverage: 70
+      #     fail_below_threshold: true
+      #     publish_only_summary: false
       
-      # Publish Coverage Job Summary  # Optional
-      - name: Add Coverage Job Summary
-        run: echo "${{ steps.jacoco_reporter.outputs.coverageSummary }}" >> $GITHUB_STEP_SUMMARY
+      # # Publish Coverage Job Summary  # Optional
+      # - name: Add Coverage Job Summary
+      #   run: echo "${{ steps.jacoco_reporter.outputs.coverageSummary }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Add coverage to PR
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.2
+        with:
+          paths: target/site/jacoco/jacoco.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          min-coverage-overall: 40
+          min-coverage-changed-files: 60
           
