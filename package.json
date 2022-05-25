@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --mode development --open msedge --hot",
     "build": "webpack --mode production",
-    "test": "jest",
+    "test": "jest --coverage",
     "jestWatch": "jest --watchAll",
     "watch": "webpack --watch --mode development -o ./target/classes/static/built/ --hot"
   },
