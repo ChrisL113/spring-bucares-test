@@ -21,7 +21,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
 
           # Path and filename of the coverage XML file to analyze.
-          COVERAGE_FILE: "target/site/jacoco.xml"
+          COVERAGE_FILE: "target/site/jacoco/jacoco.xml"
 
           # If the coverage percentage is above or equal to this value, the badge will be green.
           MINIMUM_GREEN: 100
