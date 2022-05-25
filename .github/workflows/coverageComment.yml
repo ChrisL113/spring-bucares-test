@@ -12,9 +12,10 @@ jobs:
     name: Coverage Comment
     runs-on: ubuntu-latest
     steps:
+      - name: mvn install
+        run: mvn install test
       - name: Display coverage
         uses: ewjoachim/coverage-comment-action@v1
-      - run: mvn install test
         with:
           GITHUB_TOKEN: ${{ github.token }}
 
