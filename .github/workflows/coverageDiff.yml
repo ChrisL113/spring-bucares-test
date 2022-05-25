@@ -15,12 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-        with:
-          node-version: 18.20
-          cache: npm
-      - run: npm i
-      - run: npm test
+      - run: mvn install test
       - name: Coverage Diff
         uses: greatwizard/coverage-diff-action@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
