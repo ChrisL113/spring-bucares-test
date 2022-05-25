@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      -run: mvn clean install test
+      - run: mvn clean install test
 
       - name: check javascript
         uses: themichaelhall/check-code-coverage@v1
