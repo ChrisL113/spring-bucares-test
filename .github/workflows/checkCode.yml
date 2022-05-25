@@ -18,6 +18,10 @@ jobs:
         with:
           required-percentage: 60
           report: 'coverage/clover.xml'
+      - uses: danhunsaker/clover-reporter-action@v0.2.17-clover
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          clover-file: coverage/clover.xml
 #  jacoco
 
       # # generates coverage-report.md and publishes as checkrun
