@@ -1,0 +1,24 @@
+name: Coverage Comment
+
+on:
+  push:
+    branches:
+      - '**'        # matches every branch
+      - '!master'   # excludes master
+  pull_request: {}
+
+jobs:
+  test:
+    name: Coverage Comment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display coverage
+        uses: ewjoachim/coverage-comment-action@v1
+        with:
+          GITHUB_TOKEN: ${{ github.token }}
+
+          # Path and filename of the coverage XML file to analyze.
+          COVERAGE_FILE: "target/site/jacoco.xml"
+
+          # If the coverage percentage is above or equal to this value, the badge will be green.
+          MINIMUM_GREEN: 100
