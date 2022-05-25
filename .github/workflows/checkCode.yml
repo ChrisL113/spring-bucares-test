@@ -34,9 +34,6 @@ jobs:
       #     fail_below_threshold: true
       #     publish_only_summary: false
       
-      # # Publish Coverage Job Summary  # Optional
-      # - name: Add Coverage Job Summary
-      #   run: echo "${{ steps.jacoco_reporter.outputs.coverageSummary }}" >> $GITHUB_STEP_SUMMARY
 
       - name: Add coverage to PR
         id: jacoco
