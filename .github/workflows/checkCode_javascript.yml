@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - run: npm install
-      - run: npm test --changedSince ${{ github.ref_name }}
+      - run: npm test --changedSince 7a9fba7ae5786b69187a519056630eb65fb21224
 
       - name: check javascript
         uses: themichaelhall/check-code-coverage@v1
