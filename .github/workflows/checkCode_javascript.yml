@@ -1,0 +1,26 @@
+
+on:
+  pull_request:
+    paths:
+      - "**"
+      - ".github/workflows/checkCode_javascript.yml"
+jobs:
+
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: npm install
+      - run: npm test --changedSince ${{ github.ref_name }}
+
+      - name: check javascript
+        uses: themichaelhall/check-code-coverage@v1
+        with:
+          required-percentage: 70
+          report: 'coverage/clover.xml'
+          
+      - uses: danhunsaker/clover-reporter-action@v0.2.17-clover
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          clover-file: coverage/clover.xml
