@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack serve --mode development --open msedge --hot",
     "build": "webpack --mode production",
-    "test": "jest",
+    "test": "jest --coverage",
+    "testSince": "jest --coverage --changedSince 7a9fba7ae5786b69187a519056630eb65fb21224",
     "jestWatch": "jest --watchAll",
     "watch": "webpack --watch --mode development -o ./target/classes/static/built/ --hot"
   },
@@ -20,7 +21,7 @@
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "lodash": "^4.17.20",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",

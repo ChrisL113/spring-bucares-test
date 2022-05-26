@@ -19,24 +19,14 @@
         <java.version>14</java.version>
         <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <sonar.projectKey>bucares-test</sonar.projectKey>
+        <sonar.projectName>bucares/test</sonar.projectName>
+        <sonar.organization>spring-bucares</sonar.organization>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+        <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+        <sonar.language>java</sonar.language>
     </properties>
-
-    <distributionManagement>
-
-        <snapshotRepository>
-            <id>nexus</id>
-            <uniqueVersion>false</uniqueVersion>
-            <url>http://btc02.dev.lab.plugbox.io:8081/repository/index_sys/
-            </url>
-        </snapshotRepository>
-        <repository>
-            <id>nexus</id>
-            <uniqueVersion>false</uniqueVersion>
-            <url>http://btc02.dev.lab.plugbox.io:8081/repository/index_sys/
-            </url>
-        </repository>
-
-    </distributionManagement>
 
 
     <dependencies>
@@ -83,6 +73,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
             <optional>true</optional>
         </dependency>
         <dependency>
@@ -203,7 +194,7 @@
                                 <rule>
                                     <limits>
                                         <limit>
-                                            <minimum>0.1</minimum>
+                                            <minimum>0.2</minimum>
                                         </limit>
                                     </limits>
                                 </rule>
@@ -228,97 +219,16 @@
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>1.18.12</version>
+                            <version>1.18.24</version>
+
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.3</version>
-
-                <executions>
-
-                    <execution>
-                        <id>build_and_tag_latest</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>tag_version</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>tag</goal>
-                        </goals>
-                        <configuration>
-                            <tag>${project.version}</tag>
-                        </configuration>
-                    </execution>
-
-
-                    <execution>
-                        <id>push_latest</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>push</goal>
-                        </goals>
-                        <configuration>
-                            <tag>latest</tag>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>push_version</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>push</goal>
-                        </goals>
-                        <configuration>
-                            <tag>${project.version}</tag>
-                        </configuration>
-                    </execution>
-                </executions>
-                <configuration>
-                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-                    <repository>
-                        btc02.dev.lab.plugbox.io:8083/${project.build.finalName}
-                    </repository>
-
-                    <buildArgs>
-                        <JAR_FILE>target/${project.build.finalName}.jar
-                        </JAR_FILE>
-                    </buildArgs>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>javax.activation</groupId>
-                        <artifactId>javax.activation-api</artifactId>
-                        <version>1.2.0</version>
-                    </dependency>
-
-                </dependencies>
-            </plugin>
-
+           
         </plugins>
 
         <finalName>bucarestest</finalName>
     </build>
-
-    <profiles>
-        <profile>
-            <id>sonar</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <sonar.host.url>http://btc02.dev.lab.plugbox.io:9000
-                </sonar.host.url>
-
-            </properties>
-        </profile>
-
-    </profiles>
 
 </project>
